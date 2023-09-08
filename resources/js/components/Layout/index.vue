@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header/>
+        <Header :app-name="appName"/>
         <slot/>
         <Footer/>
     </div>
@@ -12,6 +12,12 @@ import Footer from "../Footer/index.vue";
 
 export default {
     name: "Layout",
+    props: {
+        appName: {
+            type: String,
+            required: true,
+        },
+    },
     components: {
         Header,
         Footer,

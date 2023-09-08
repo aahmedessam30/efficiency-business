@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return inertia('Welcome/index', ['name' => 'Ahmed Essam']);
-});
+    return inertia('Welcome/index', ['appName' => config('app.name')]);
+})->name('home');
+
+Route::get('/about', function () {
+    return inertia('About/index', ['appName' => config('app.name')]);
+})->name('about');
+
+Route::get('/contact', function () {
+    return inertia('Contact/index', ['appName' => config('app.name')]);
+})->name('contact');

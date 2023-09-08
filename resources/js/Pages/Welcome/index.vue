@@ -1,7 +1,7 @@
 <template>
-    <Layout>
+    <Layout :app-name="appName">
         <Hero />
-        <h1>Welcome, {{ name }}</h1>
+        <h1>Welcome, {{ appName }}</h1>
     </Layout>
 </template>
 
@@ -12,7 +12,7 @@ import Hero from "../../components/Hero/index.vue";
 export default {
     name: "Welcome",
     props: {
-        name: {
+        appName: {
             type: String,
             required: true,
         },
