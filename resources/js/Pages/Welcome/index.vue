@@ -1,11 +1,13 @@
 <template>
     <Layout>
+        <Hero />
         <h1>Welcome, {{ name }}</h1>
     </Layout>
 </template>
 
 <script>
-import Layout from "../../layouts/App/index.vue";
+import Layout from "../../components/Layout/index.vue";
+import Hero from "../../components/Hero/index.vue";
 
 export default {
     name: "Welcome",
@@ -16,6 +18,7 @@ export default {
         },
     },
     components: {
+        Hero,
         Layout,
     },
     data() {
