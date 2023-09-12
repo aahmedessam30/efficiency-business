@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <Header :app-name="appName"/>
+    <div class="flex flex-col h-screen justify-between">
+        <Header/>
         <slot/>
         <Footer/>
     </div>
@@ -12,15 +12,9 @@ import Footer from "../Footer/index.vue";
 
 export default {
     name: "Layout",
-    props: {
-        appName: {
-            type: String,
-            required: true,
-        },
-    },
     components: {
         Header,
-        Footer,
+        Footer
     },
 }
 </script>
