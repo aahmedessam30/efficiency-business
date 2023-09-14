@@ -1,21 +1,18 @@
 <template>
-    <Layout>
-        <Hero />
+    <Layout :title="$t('front.home')">
+        <Hero/>
+        <About/>
     </Layout>
 </template>
 
 <script>
 import Layout from "../../components/Layout/index.vue";
 import Hero from "../../components/Hero/index.vue";
+import About from "@/components/About/index.vue";
 
 export default {
     name: "Home",
-    components: {Hero, Layout},
-    data() {
-        return {
-            //
-        }
-    },
+    components: {About, Hero, Layout}
 }
 </script>
 

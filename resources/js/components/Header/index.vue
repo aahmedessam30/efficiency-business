@@ -1,29 +1,29 @@
 <template>
-    <header class="text-gray-600 body-font w-full">
+    <header class="text-gray-600 body-font fixed w-full z-10"
+            :class="{'header--scrolled': scrollY > 200, 'header--transparent': scrollY === 0}">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-                     stroke-linejoin="round" stroke-width="2"
-                     class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
-                <span class="ml-3 text-xl">{{ appName }}</span>
-            </a>
+
+            <img :src="logo" alt="logo" class="w-20 h-10 object-contain cursor-pointer" @click="$inertia.visit('/')"/>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                <Link class="mr-5 hover:text-gray-900"
-                      :class="{'text-gray-900 font-medium': route().current('home'), 'text-gray-500': !route().current('home')}"
-                      :href="route('home')">
-                    Home
+                <Link class="mr-5" :href="$route('home')"
+                      :class="{'active': $route().current('home') && !currentHash, 'not-active': !$route().current('home') || currentHash}">
+                    {{ $t('front.home') }}
                 </Link>
-                <Link class="mr-5 hover:text-gray-900"
-                      :class="{'text-gray-900 font-medium': route().current('about'), 'text-gray-500': !route().current('about')}"
-                        :href="route('about')">
-                    About
+                <Link class="mr-5" href="#about"
+                      :class="{'active': currentHash === '#about', 'not-active': currentHash !== '#about'}">
+                    {{ $t('front.about') }}
                 </Link>
-                <Link class="mr-5 hover:text-gray-900"
-                      :class="{'text-gray-900 font-medium': route().current('contact'), 'text-gray-500': !route().current('contact')}"
-                        :href="route('contact')">
-                    Contact Us
+                <Link class="mr-5" href="#services"
+                      :class="{'active': currentHash === '#services', 'not-active': currentHash !== '#services'}">
+                    {{ $t('front.services') }}
+                </Link>
+                <Link class="mr-5" href="#our-clients"
+                      :class="{'active': currentHash === '#our-clients', 'not-active': currentHash !== '#our-clients'}">
+                    {{ $t('front.our_clients') }}
+                </Link>
+                <Link class="mr-5" :href="$route('contact-us')"
+                      :class="{'active': $route().current('contact-us') && !currentHash, 'not-active': !$route().current('contact-us') || currentHash}">
+                    {{ $t('front.contact') }}
                 </Link>
             </nav>
         </div>
@@ -32,17 +32,38 @@
 
 <script>
 import {Link} from '@inertiajs/vue3'
+import logo from '../../../../public/images/logo.png'
 
 export default {
     name: "Header",
     components: {
         Link,
     },
+    data() {
+        return {
+            logo: logo,
+            currentHash: '',
+            scrollY: 0,
+        }
+    },
     computed: {
         appName() {
             return this.$page.props.appName
         }
-    }
+    },
+    created() {
+        this.currentHash = window.location.hash;
+    },
+    beforeMount() {
+        window.addEventListener('scroll', () => {
+            this.scrollY = window.scrollY
+        })
+    },
+    watch: {
+        '$route'() {
+            this.currentHash = window.location.hash;
+        },
+    },
 }
 </script>
 

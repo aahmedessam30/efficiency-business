@@ -1,10 +1,13 @@
 import './bootstrap';
-import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.es.js';
-import { Ziggy } from './ziggy';
+import {createApp, h} from 'vue'
+import {createInertiaApp} from '@inertiajs/vue3'
+import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.es.js';
+import {Ziggy} from './ziggy';
+import {i18nVue} from 'laravel-vue-i18n'
+
 
 createInertiaApp({
+    title: title => title,
     progress: {
         // The delay after which the progress bar will appear, in milliseconds...
         delay: 250,
@@ -23,9 +26,17 @@ createInertiaApp({
         return pages[`./Pages/${name}.vue`];
     },
     setup({el, App, props, plugin}) {
-        createApp({render: () => h(App, props)})
-            .mixin({methods: {route: window.route}})
-            .use(plugin, ZiggyVue, Ziggy)
+        const app = createApp({render: () => h(App, props)});
+        app.config.globalProperties.$route = route;
+        app.use(plugin, ZiggyVue, Ziggy)
+            .use(i18nVue, {
+                lang: 'en',
+                resolve: async lang => {
+                    const langs = import.meta.glob('../../lang/*.json');
+                    return await langs[`../../lang/${lang}.json`]();
+                }
+            })
             .mount(el);
     },
 })
+

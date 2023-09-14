@@ -1,0 +1,38 @@
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+.header--scrolled {
+    @apply shadow-xl;
+    @apply bg-white;
+    @apply fixed;
+    @apply m-0;
+
+    .active {
+        @apply font-medium;
+        @apply text-primary;
+        @apply hover:text-gray-500;
+    }
+
+    .not-active {
+        @apply text-gray-900;
+        @apply hover:text-gray-500;
+    }
+}
+
+.header--transparent {
+    @apply bg-transparent;
+    @apply fixed;
+
+    .active {
+        @apply font-medium;
+        @apply text-primary;
+        @apply hover:text-gray-300;
+    }
+
+    .not-active {
+        @apply text-white;
+        @apply hover:text-gray-300;
+    }
+}
+
