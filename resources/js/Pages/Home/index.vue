@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Layout from "../../components/Layout/index.vue";
+import Layout from "../../Layout/index.vue";
 import Hero from "../../components/Hero/index.vue";
 import About from "@/components/About/index.vue";
 

@@ -1,7 +1,7 @@
 <template>
     <header class="text-gray-600 body-font fixed w-full z-10"
-            :class="{'header--scrolled': scrollY > 200, 'header--transparent': scrollY === 0}">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            :class="{'header--scrolled': scrollY > 0, 'header--transparent': scrollY === 0}">
+        <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
 
             <img :src="logo" alt="logo" class="w-20 h-10 object-contain cursor-pointer" @click="$inertia.visit('/')"/>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">

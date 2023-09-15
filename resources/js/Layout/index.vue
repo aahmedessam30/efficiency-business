@@ -9,8 +9,8 @@
 
 <script>
 import {Head} from '@inertiajs/vue3'
-import Header from "../Header/index.vue";
-import Footer from "../Footer/index.vue";
+import Header from "../components/Header/index.vue";
+import Footer from "../components/Footer/index.vue";
 
 export default {
     name: "Layout",

@@ -21,5 +21,3 @@ export default {
     name: "About"
 }
 </script>
-
-<style scoped lang="scss" src="./_index.scss"/>

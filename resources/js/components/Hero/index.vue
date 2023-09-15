@@ -28,5 +28,3 @@ export default {
     },
 }
 </script>
-
-<style scoped lang="scss" src="./_index.scss"/>
