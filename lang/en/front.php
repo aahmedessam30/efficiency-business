@@ -3,7 +3,8 @@
 return [
     'home' => 'Home',
     'about' => 'About Us',
-    'services' => 'Our Services',
+    'why-choose' => 'Why Choose Us',
+    'services' => 'Services',
     'our_clients' => 'Our Clients',
     'contact' => 'Contact Us',
     'about_us_title' => 'We Are Advertising Agency',

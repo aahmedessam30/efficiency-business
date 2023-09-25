@@ -9,14 +9,14 @@
     @apply m-0;
 
     .active {
-        @apply font-medium;
+        @apply font-bold;
         @apply text-primary;
-        @apply hover:text-gray-500;
+        @apply hover:text-primary-light;
     }
 
     .not-active {
-        @apply text-gray-900;
-        @apply hover:text-gray-500;
+        @apply text-gray-400;
+        @apply hover:text-primary-light;
     }
 }
 
@@ -25,14 +25,13 @@
     @apply fixed;
 
     .active {
-        @apply font-medium;
-        @apply text-primary;
-        @apply hover:text-gray-300;
+        @apply font-bold;
+        @apply text-secondary;
+        @apply hover:text-secondary-hover;
     }
 
     .not-active {
         @apply text-white;
-        @apply hover:text-gray-300;
+        @apply hover:text-secondary-hover;
     }
 }
-

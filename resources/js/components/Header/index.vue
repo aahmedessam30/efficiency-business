@@ -13,6 +13,10 @@
                       :class="{'active': currentHash === '#about', 'not-active': currentHash !== '#about'}">
                     {{ $t('front.about') }}
                 </Link>
+                <Link class="mr-5" href="#why-choose-us"
+                      :class="{'active': currentHash === '#why-choose-us', 'not-active': currentHash !== '#why-choose-us'}">
+                    {{ $t('front.why-choose') }}
+                </Link>
                 <Link class="mr-5" href="#services"
                       :class="{'active': currentHash === '#services', 'not-active': currentHash !== '#services'}">
                     {{ $t('front.services') }}
@@ -32,7 +36,8 @@
 
 <script>
 import {Link} from '@inertiajs/vue3'
-import logo from '../../../../public/images/logo.png'
+import logoWhite from '../../../../public/images/logo-white.png'
+import logoDark from '../../../../public/images/logo-dark.png'
 
 export default {
     name: "Header",
@@ -41,14 +46,9 @@ export default {
     },
     data() {
         return {
-            logo: logo,
+            logo: logoWhite,
             currentHash: '',
             scrollY: 0,
-        }
-    },
-    computed: {
-        appName() {
-            return this.$page.props.appName
         }
     },
     created() {
@@ -57,6 +57,7 @@ export default {
     beforeMount() {
         window.addEventListener('scroll', () => {
             this.scrollY = window.scrollY
+            this.logo = this.scrollY > 0 ? logoDark : logoWhite
         })
     },
     watch: {
