@@ -21,8 +21,8 @@
                       :class="{'active': currentHash === '#services', 'not-active': currentHash !== '#services'}">
                     {{ $t('front.services') }}
                 </Link>
-                <Link class="mr-5" href="#our-clients"
-                      :class="{'active': currentHash === '#our-clients', 'not-active': currentHash !== '#our-clients'}">
+                <Link class="mr-5" href="#testimonials"
+                      :class="{'active': currentHash === '#testimonials', 'not-active': currentHash !== '#testimonials'}">
                     {{ $t('front.our_clients') }}
                 </Link>
                 <Link class="mr-5" :href="$route('contact-us')"

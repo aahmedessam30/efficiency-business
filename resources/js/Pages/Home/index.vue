@@ -7,6 +7,7 @@
         <OurServices/>
         <TrustedBy/>
         <Testimonials/>
+        <Collaboration/>
     </Layout>
 </template>
 
@@ -19,10 +20,11 @@ import OurWork from "@/components/OurWork/index.vue";
 import OurServices from "@/components/ OurServices/index.vue";
 import TrustedBy from "@/components/TrustedBy/index.vue";
 import Testimonials from "@/components/Testimonials/index.vue";
+import Collaboration from "@/components/Collaboration/index.vue";
 
 export default {
     name: "Home",
-    components: {Testimonials, TrustedBy, OurServices, OurWork, WhyChooseUs, About, Hero, Layout}
+    components: {Collaboration, Testimonials, TrustedBy, OurServices, OurWork, WhyChooseUs, About, Hero, Layout}
 }
 </script>
 

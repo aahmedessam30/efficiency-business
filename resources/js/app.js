@@ -4,7 +4,7 @@ import {createInertiaApp} from '@inertiajs/vue3'
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.es.js';
 import {Ziggy} from './ziggy';
 import {i18nVue} from 'laravel-vue-i18n'
-
+import 'flowbite';
 
 createInertiaApp({
     title: title => title,
