@@ -27,5 +27,3 @@ export default {
     components: {Collaboration, Testimonials, TrustedBy, OurServices, OurWork, WhyChooseUs, About, Hero, Layout}
 }
 </script>
-
-<style scoped lang="scss" src="./_index.scss"/>

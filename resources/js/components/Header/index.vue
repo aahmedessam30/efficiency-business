@@ -1,5 +1,5 @@
 <template>
-    <header class="text-gray-600 body-font fixed w-full z-10"
+    <header class="text-gray-600 body-font fixed w-full z-10 transition-all duration-300 ease-in-out"
             :class="{'header--scrolled': scrollY > 0, 'header--transparent': scrollY === 0}">
         <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
 
@@ -9,19 +9,15 @@
                       :class="{'active': $route().current('home') && !currentHash, 'not-active': !$route().current('home') || currentHash}">
                     {{ $t('front.home') }}
                 </Link>
-                <Link class="mr-5" href="#about"
+                <Link class="mr-5" :href="$route('home') + '#about'"
                       :class="{'active': currentHash === '#about', 'not-active': currentHash !== '#about'}">
                     {{ $t('front.about') }}
                 </Link>
-                <Link class="mr-5" href="#why-choose-us"
-                      :class="{'active': currentHash === '#why-choose-us', 'not-active': currentHash !== '#why-choose-us'}">
-                    {{ $t('front.why-choose') }}
-                </Link>
-                <Link class="mr-5" href="#services"
+                <Link class="mr-5" :href="$route('home') + '#services'"
                       :class="{'active': currentHash === '#services', 'not-active': currentHash !== '#services'}">
                     {{ $t('front.services') }}
                 </Link>
-                <Link class="mr-5" href="#testimonials"
+                <Link class="mr-5" :href="$route('home') + '#testimonials'"
                       :class="{'active': currentHash === '#testimonials', 'not-active': currentHash !== '#testimonials'}">
                     {{ $t('front.our_clients') }}
                 </Link>

@@ -12,8 +12,9 @@ export default {
                 'primary': '#0C313D',
                 'primary-light': '#344F5A',
                 'secondary': '#C1495B',
-                'secondary-hover': '#D15F71',
-                'secondary-light': '#FFEFF0',
+                'secondary-light': '#D15F71',
+                'tertiary': '#9BB5C0',
+                'tertiary-light': '#F0F4F6',
             }
         },
     },

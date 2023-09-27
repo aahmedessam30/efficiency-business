@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-primary w-full py-10">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            <div class="grid grid-cols-5 gap-12">
+        <div class="container mx-auto w-full px-4 py-6 lg:py-8">
+            <div class="grid grid-cols-5 gap-52">
                 <div class="mb-6 md:mb-0 col-span-2">
                     <a href="#" class="flex items-center">
                         <img :src="logo" class="h-8 mr-3" alt="FlowBite Logo"/>

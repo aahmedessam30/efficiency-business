@@ -27,11 +27,11 @@
     .active {
         @apply font-bold;
         @apply text-secondary;
-        @apply hover:text-secondary-hover;
+        @apply hover:text-secondary-light;
     }
 
     .not-active {
         @apply text-white;
-        @apply hover:text-secondary-hover;
+        @apply hover:text-secondary-light;
     }
 }
