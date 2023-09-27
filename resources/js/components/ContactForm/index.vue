@@ -58,14 +58,21 @@
                 </form>
             </div>
             <div class="col-span-2 md:col-span-1">
-                <img src="/images/contact-us-2.png" alt="Contact Us" class="w-full h-full object-cover rounded-3xl"/>
+                <img :src="image" alt="Contact Us" class="w-full h-full object-cover rounded-3xl"/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import image from '../../../../public/images/contact-us-2.png'
+
 export default {
     name: "ContactForm",
+    data() {
+        return {
+            image,
+        }
+    },
 }
 </script>
