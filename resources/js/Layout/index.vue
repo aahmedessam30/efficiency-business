@@ -1,6 +1,6 @@
 <template>
     <Head :title="title"/>
-    <div class="flex flex-col h-screen justify-between">
+    <div class="flex flex-col h-screen justify-between w-full">
         <Header/>
         <ScrollToTopButton/>
         <slot/>
