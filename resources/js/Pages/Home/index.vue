@@ -4,12 +4,12 @@
         <div class="container mx-auto px-5 w-full">
             <About/>
             <WhyChooseUs/>
-    <!--        <OurWork/>-->
-    <!--        <OurServices/>-->
-    <!--        <TrustedBy/>-->
-    <!--        <Testimonials/>-->
+            <OurWork/>
+            <OurServices/>
+            <TrustedBy/>
+            <Testimonials/>
         </div>
-<!--        <Collaboration/>-->
+        <Collaboration/>
     </Layout>
 </template>
 

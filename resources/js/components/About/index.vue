@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-20 py-20" id="about">
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20 py-20" id="about">
         <div
             class="flex items-center justify-center bg-cover bg-center lg:h-[700px] h-[500px] w-full rounded-[30px] shadow-lg transform hover:scale-105 transition duration-500 ease-in-out"
             :class="`bg-[url('https://picsum.photos/400/400')]`">
