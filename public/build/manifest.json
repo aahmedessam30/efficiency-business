@@ -1,6 +1,6 @@
 {
   "lang/php_en.json": {
-    "file": "assets/php_en-68fedf78.js",
+    "file": "assets/php_en-631b7694.js",
     "isDynamicEntry": true,
     "src": "lang/php_en.json"
   },
@@ -29,12 +29,12 @@
     "src": "public/images/logo-white.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-78738c29.css",
+    "file": "assets/app-6df9c61a.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app-1fc53658.css",
+    "file": "assets/app-2d0f6bf6.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -47,12 +47,12 @@
       "assets/circle-5a0c8d58.png"
     ],
     "css": [
-      "assets/app-1fc53658.css"
+      "assets/app-2d0f6bf6.css"
     ],
     "dynamicImports": [
       "lang/php_en.json"
     ],
-    "file": "assets/app-3d4d3b0f.js",
+    "file": "assets/app-9f88cdf7.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
