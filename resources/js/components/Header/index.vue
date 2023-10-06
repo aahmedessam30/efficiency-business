@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav
-            class="lg:px-20 px-10 py-2.5 text-gray-600 body-font fixed w-full z-10 transition-all duration-300 ease-in-out"
+            class="lg:px-20 px-10 py-2.5 text-gray-600 body-font fixed w-full z-40 transition-all duration-300 ease-in-out"
             :class="{'header--transparent': scrollY === 0 && !darkHeader, 'header--scrolled': scrollY > 0 || darkHeader}">
             <div class="flex flex-wrap justify-between items-center container mx-auto">
                 <img :src="logo" alt="logo" class="w-20 h-10 object-contain cursor-pointer"
