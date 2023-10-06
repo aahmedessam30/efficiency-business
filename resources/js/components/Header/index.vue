@@ -1,7 +1,8 @@
 <template>
     <header>
-        <nav class="lg:px-20 px-10 py-2.5 text-gray-600 body-font fixed w-full z-10 transition-all duration-300 ease-in-out"
-             :class="{'header--scrolled': scrollY > 0, 'header--transparent': scrollY === 0}">
+        <nav
+            class="lg:px-20 px-10 py-2.5 text-gray-600 body-font fixed w-full z-10 transition-all duration-300 ease-in-out"
+            :class="{'header--transparent': scrollY === 0 && !darkHeader, 'header--scrolled': scrollY > 0 || darkHeader}">
             <div class="flex flex-wrap justify-between items-center container mx-auto">
                 <img :src="logo" alt="logo" class="w-20 h-10 object-contain cursor-pointer"
                      @click="$inertia.visit('/')"/>
@@ -39,7 +40,7 @@
                         </li>
                         <li>
                             <Link class="mr-5" :href="$route('home') + '#services'"
-                                  :class="{'active': currentHash === '#services', 'not-active': currentHash !== '#services'}">
+                                  :class="{'active': currentHash === '#services' || $route().current('our-services'), 'not-active': currentHash !== '#services' && !$route().current('our-services')}">
                                 {{ $t('front.services') }}
                             </Link>
                         </li>
@@ -72,6 +73,13 @@ export default {
     components: {
         Link,
     },
+    props: {
+        darkHeader: {
+            required: false,
+            type: Boolean,
+            default: false,
+        },
+    },
     data() {
         return {
             logo: logoWhite,
@@ -81,6 +89,7 @@ export default {
     },
     created() {
         this.currentHash = window.location.hash;
+        this.logo = this.darkHeader ? logoDark : logoWhite
     },
     beforeMount() {
         window.addEventListener('scroll', () => {

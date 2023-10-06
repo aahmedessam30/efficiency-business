@@ -1,7 +1,7 @@
 <template>
     <Head :title="title"/>
     <div class="flex flex-col h-screen justify-between w-full">
-        <Header/>
+        <Header :dark-header="darkHeader"/>
         <ScrollToTopButton/>
         <slot/>
         <Footer/>
@@ -20,7 +20,12 @@ export default {
         title: {
             required: true,
             type: String,
-        }
+        },
+        darkHeader: {
+            required: false,
+            type: Boolean,
+            default: false,
+        },
     },
     components: {
         ScrollToTopButton,
@@ -30,5 +35,3 @@ export default {
     },
 }
 </script>
-
-<style scoped lang="scss" src="./_index.scss"/>
