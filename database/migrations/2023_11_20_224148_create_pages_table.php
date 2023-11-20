@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->json('title');
             $table->string('slug')->unique();
             $table->longText('body')->nullable();
             $table->longText('style')->nullable();

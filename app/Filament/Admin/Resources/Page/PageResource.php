@@ -3,19 +3,20 @@
 namespace App\Filament\Admin\Resources\Page;
 
 use App\Models\Page;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Set;
 use Filament\Tables;
+use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use App\Filament\Admin\Resources\Page\PageResource\RelationManagers;
 use Illuminate\Support\Str;
+use Filament\Resources\Resource;
+use Filament\Resources\Concerns\Translatable;
+use Filament\Forms\Components\{Section, TextInput};
+use App\Filament\Admin\Resources\Page\PageResource\RelationManagers;
 
 class PageResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -32,7 +33,7 @@ class PageResource extends Resource
                         ->autofocus()
                         ->maxLength(255)
                         ->live(debounce: 500)
-                        ->afterStateUpdated(fn (Set $set, $state) => $set('slug', Str::slug($state)))
+                        ->afterStateUpdated(fn(Set $set, $state) => $set('slug', Str::slug($state)))
                         ->required(),
 
                     TextInput::make('slug')
@@ -91,9 +92,9 @@ class PageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => PageResource\Pages\ListPages::route('/'),
+            'index' => PageResource\Pages\ListPages::route('/'),
             'create' => PageResource\Pages\CreatePage::route('/create'),
-            'edit'   => PageResource\Pages\EditPage::route('/{record}/edit'),
+            'edit' => PageResource\Pages\EditPage::route('/{record}/edit'),
         ];
     }
 }
