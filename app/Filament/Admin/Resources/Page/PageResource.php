@@ -10,7 +10,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Resources\Concerns\Translatable;
-use Filament\Forms\Components\{Section, TextInput};
+use Filament\Forms\Components\{Fieldset, Section, SpatieMediaLibraryFileUpload, TextInput, Toggle};
 use App\Filament\Admin\Resources\Page\PageResource\RelationManagers;
 
 class PageResource extends Resource
@@ -40,6 +40,10 @@ class PageResource extends Resource
                         ->label(__('attributes.slug'))
                         ->required(),
 
+                    SpatieMediaLibraryFileUpload::make('header')
+                        ->label(__('attributes.header'))
+                        ->collection('pages'),
+
                     TextInput::make('body')
                         ->label(__('attributes.body'))
                         ->required(),
@@ -52,13 +56,20 @@ class PageResource extends Resource
                         ->label(__('attributes.script'))
                         ->required(),
 
-                    TextInput::make('is_active')
-                        ->label(__('attributes.is_active'))
-                        ->required(),
+                    Fieldset::make('Actions')
+                        ->label(__('attributes.actions'))
+                        ->columns(2)
+                        ->schema([
+                            Toggle::make('is_active')
+                                ->label(__('attributes.active_page'))
+                                ->default(true)
+                                ->required(),
 
-                    TextInput::make('is_header_active')
-                        ->label(__('attributes.is_header_active'))
-                        ->required(),
+                            Toggle::make('is_header_active')
+                                ->label(__('attributes.active_header'))
+                                ->default(true)
+                                ->required(),
+                        ]),
                 ]),
             ]);
     }

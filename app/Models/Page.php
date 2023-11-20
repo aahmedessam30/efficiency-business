@@ -24,6 +24,18 @@ class Page extends Model
         'is_header_active' => 'boolean'
     ];
 
+    public $translatable = ['title', 'body', 'style', 'script'];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('pages');
+    }
+
+    public function getHeaderAttribute()
+    {
+        return $this->getFirstMediaUrl('pages');
+    }
+
     public function scopeActive($query, $active = true)
     {
         return $query->where('is_active', $active);
