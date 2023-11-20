@@ -10,12 +10,12 @@
 
 <script>
 import {Head} from '@inertiajs/vue3'
-import Header from "../components/Header/index.vue";
-import Footer from "../components/Footer/index.vue";
-import ScrollToTopButton from "../components/ScrollToTopButton/index.vue";
+import Header from "../../components/Header/index.vue";
+import Footer from "../../components/Footer/index.vue";
+import ScrollToTopButton from "../../components/ScrollToTopButton/index.vue";
 
 export default {
-    name: "Layout",
+    name: "Default",
     props: {
         title: {
             required: true,

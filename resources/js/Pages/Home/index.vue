@@ -1,5 +1,5 @@
 <template>
-    <Layout :title="$t('front.home')">
+    <Default :title="$t('front.home')">
         <Hero/>
         <div class="container mx-auto px-5 w-full">
             <About/>
@@ -10,11 +10,11 @@
             <Testimonials/>
         </div>
         <Collaboration/>
-    </Layout>
+    </Default>
 </template>
 
 <script>
-import Layout from "@/Layout/index.vue";
+import Default from "@/Layout/Default/index.vue";
 import Hero from "@/components/Hero/index.vue";
 import About from "@/components/About/index.vue";
 import WhyChooseUs from "@/components/WhyChooseUs/index.vue";
@@ -26,6 +26,6 @@ import Collaboration from "@/components/Collaboration/index.vue";
 
 export default {
     name: "Home",
-    components: {Collaboration, Testimonials, TrustedBy, OurServices, OurWork, WhyChooseUs, About, Hero, Layout}
+    components: {Collaboration, Testimonials, TrustedBy, OurServices, OurWork, WhyChooseUs, About, Hero, Default}
 }
 </script>

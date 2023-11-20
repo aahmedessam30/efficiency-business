@@ -1,5 +1,5 @@
 <template>
-    <Layout :title="$t('front.contact')">
+    <Default :title="$t('front.contact')">
         <div class="bg-cover bg-center w-full h-[800px] text-center pb-28" :style="{ backgroundImage: 'url(' + image + ')' }">
             <h1 class="text-white text-5xl font-serif font-[700] tracking-[4.2px] leading-tight pt-[150px]">
                 {{ $t('front.contact') }}
@@ -9,17 +9,17 @@
             </p>
         </div>
         <ContactForm/>
-    </Layout>
+    </Default>
 </template>
 
 <script>
-import Layout from "@/Layout/index.vue";
+import Default from "@/Layout/Default/index.vue";
 import ContactForm from "@/components/ContactForm/index.vue";
 import image from '../../../../public/images/contact-us.png';
 
 export default {
     name: "ContactUs",
-    components: {ContactForm, Layout},
+    components: {Default, ContactForm},
     data() {
         return {
             image,

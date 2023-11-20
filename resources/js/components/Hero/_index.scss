@@ -53,8 +53,8 @@ $quantity: 100;
 
     @keyframes move#{$i} {
         @for $step from 0 through $steps {
-            #{$step * (100 / $steps)}% {
-                transform: translateX(random(100) - 65vw) translateY(random(100) - 50vh) scale(random(75) / 100 + .25);
+            #{$step * calc(100 / $steps)}% {
+                transform: translateX(random(100) - 65vw) translateY(random(100) - 50vh) scale(calc(random(75) / 100) + .25);
             }
         }
     }

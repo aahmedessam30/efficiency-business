@@ -29,12 +29,12 @@
     "src": "public/images/logo-white.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-6df9c61a.css",
+    "file": "assets/app-afd35046.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app-5e2ab5a1.css",
+    "file": "assets/app-f2189155.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -47,12 +47,12 @@
       "assets/circle-5a0c8d58.png"
     ],
     "css": [
-      "assets/app-5e2ab5a1.css"
+      "assets/app-f2189155.css"
     ],
     "dynamicImports": [
       "lang/php_en.json"
     ],
-    "file": "assets/app-4c7f7bd0.js",
+    "file": "assets/app-a6c318bb.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
