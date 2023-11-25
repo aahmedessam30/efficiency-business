@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\Page;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Models\Page;
 use Filament\Tables;
 use Filament\Forms\Set;
@@ -44,17 +45,20 @@ class PageResource extends Resource
                         ->label(__('attributes.header'))
                         ->collection('pages'),
 
-                    TextInput::make('body')
+                    TinyEditor::make('body')
+                        ->profile('full')
+                        ->direction('auto|rtl|ltr')
                         ->label(__('attributes.body'))
+                        ->columnSpan('full')
                         ->required(),
 
-                    TextInput::make('style')
-                        ->label(__('attributes.style'))
-                        ->required(),
-
-                    TextInput::make('script')
-                        ->label(__('attributes.script'))
-                        ->required(),
+//                    TextInput::make('style')
+//                        ->label(__('attributes.style'))
+//                        ->required(),
+//
+//                    TextInput::make('script')
+//                        ->label(__('attributes.script'))
+//                        ->required(),
 
                     Fieldset::make('Actions')
                         ->label(__('attributes.actions'))
