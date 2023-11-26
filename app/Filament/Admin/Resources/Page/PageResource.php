@@ -43,6 +43,8 @@ class PageResource extends Resource
 
                     SpatieMediaLibraryFileUpload::make('header')
                         ->label(__('attributes.header'))
+                        ->live()
+                        ->afterStateUpdated(fn(Set $set, $state) => $set('is_header_active', $state !== null))
                         ->collection('pages'),
 
                     TinyEditor::make('body')
@@ -51,14 +53,6 @@ class PageResource extends Resource
                         ->label(__('attributes.body'))
                         ->columnSpan('full')
                         ->required(),
-
-//                    TextInput::make('style')
-//                        ->label(__('attributes.style'))
-//                        ->required(),
-//
-//                    TextInput::make('script')
-//                        ->label(__('attributes.script'))
-//                        ->required(),
 
                     Fieldset::make('Actions')
                         ->label(__('attributes.actions'))
@@ -71,7 +65,7 @@ class PageResource extends Resource
 
                             Toggle::make('is_header_active')
                                 ->label(__('attributes.active_header'))
-                                ->default(true)
+                                ->default(false)
                                 ->required(),
                         ]),
                 ]),
