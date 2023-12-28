@@ -8,6 +8,5 @@ return [
     'style'         => 'الأنماط',
     'script'        => 'النصوص',
     'actions'       => 'الإجراءات',
-    'active_page'   => 'تفعيل الصفحة',
-    'active_header' => 'تفعيل الصورة الرئيسية',
+    'active'        => 'تفعيل',
 ];

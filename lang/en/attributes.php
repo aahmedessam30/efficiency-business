@@ -8,6 +8,5 @@ return [
     'style'         => 'Style',
     'script'        => 'Script',
     'actions'       => 'Actions',
-    'active_page'   => 'Active Page',
-    'active_header' => 'Active Header',
+    'active'        => 'Active',
 ];

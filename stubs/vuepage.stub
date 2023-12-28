@@ -1,0 +1,14 @@
+<template>
+    {{ sections }}
+</template>
+
+<script>
+{{ importSections }}
+
+export default {
+    name: "{{ pageName }}",
+    components: {
+       {{ components }}
+    },
+}
+</script>

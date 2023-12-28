@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
              'email' => 'admin@admin.com',
          ]);
 
-         \App\Models\User::factory(10)->create();
+         $this->call([
+             SectionTypeSeeder::class,
+//             PageSeeder::class,
+//             SectionSeeder::class,
+         ]);
     }
 }

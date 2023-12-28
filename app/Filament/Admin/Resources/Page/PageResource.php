@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources\Page;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Models\Page;
+use Filament\Forms\Get;
 use Filament\Tables;
 use Filament\Forms\Set;
 use Filament\Forms\Form;
@@ -11,12 +12,13 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Resources\Concerns\Translatable;
-use Filament\Forms\Components\{Fieldset, Section, SpatieMediaLibraryFileUpload, TextInput, Toggle};
+use Filament\Forms\Components\{Fieldset, Repeater, Section, Select, SpatieMediaLibraryFileUpload, TextInput, Toggle};
 use App\Filament\Admin\Resources\Page\PageResource\RelationManagers;
+use App\Traits\ComponentForms;
 
 class PageResource extends Resource
 {
-    use Translatable;
+    use Translatable, ComponentForms;
 
     protected static ?string $model = Page::class;
 
@@ -41,33 +43,23 @@ class PageResource extends Resource
                         ->label(__('attributes.slug'))
                         ->required(),
 
-                    SpatieMediaLibraryFileUpload::make('header')
-                        ->label(__('attributes.header'))
-                        ->live()
-                        ->afterStateUpdated(fn(Set $set, $state) => $set('is_header_active', $state !== null))
-                        ->collection('pages'),
-
-                    TinyEditor::make('body')
-                        ->profile('full')
-                        ->direction('auto|rtl|ltr')
-                        ->label(__('attributes.body'))
-                        ->columnSpan('full')
-                        ->required(),
-
-                    Fieldset::make('Actions')
-                        ->label(__('attributes.actions'))
-                        ->columns(2)
+                    Repeater::make('sections')
+                        ->relationship('sections')
                         ->schema([
-                            Toggle::make('is_active')
-                                ->label(__('attributes.active_page'))
-                                ->default(true)
+                            Select::make('section_type_id')
+                                ->label(__('attributes.section_type'))
+                                ->options(\App\Models\SectionType::pluck('name', 'id')->toArray())
+                                ->placeholder(__('forms.actions.select_option'))
+                                ->live()
                                 ->required(),
 
-                            Toggle::make('is_header_active')
-                                ->label(__('attributes.active_header'))
-                                ->default(false)
-                                ->required(),
+                            ...static::getSectionTypeComponentField(),
                         ]),
+
+                    Toggle::make('is_active')
+                        ->label(__('attributes.active'))
+                        ->default(true)
+                        ->required(),
                 ]),
             ]);
     }
@@ -76,13 +68,37 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')
+                    ->label(__('attributes.title'))
+                    ->searchable()
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('slug')
+                    ->label(__('attributes.url'))
+                    ->url(fn(Page $page) => route("page.$page->slug"), true)
+                    ->formatStateUsing(fn(Page $page) => route("page.$page->slug"))
+                    ->searchable()
+                    ->sortable(),
+
+                Tables\Columns\IconColumn::make('is_active')
+                    ->label(__('attributes.active'))
+                    ->boolean()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('title')
+                    ->label(__('attributes.title')),
+
+                Tables\Filters\Filter::make('slug')
+                    ->label(__('attributes.url')),
+
+                Tables\Filters\Filter::make('is_active')
+                    ->label(__('attributes.active'))
+                    ->checkbox(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
