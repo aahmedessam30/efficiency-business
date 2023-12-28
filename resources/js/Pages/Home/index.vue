@@ -2,7 +2,7 @@
     <Default :title="$t('front.home')">
         <Hero/>
         <div class="container mx-auto px-5 w-full">
-            <About/>
+            <About />
             <WhyChooseUs/>
             <OurWork/>
             <OurServices/>

@@ -1,5 +1,6 @@
 <template>
-    <div class="container mx-auto px-5 w-full text-center pb-40">
+    <div class="container mx-auto px-5 w-full text-center pb-40" data-aos="zoom-in" data-aos-duration="1000"
+         data-aos-delay="300">
         <h1 class="text-6xl text-primary font-extrabold font-serif capitalize">Our Work</h1>
         <video>
             <source src="">

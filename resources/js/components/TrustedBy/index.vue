@@ -1,5 +1,6 @@
 <template>
-    <div class="container mx-auto px-5 w-full text-center pb-40">
+    <div class="container mx-auto px-5 w-full text-center pb-40" id="trusted-by" data-aos="fade-up"
+         data-aos-duration="1000" data-aos-delay="300">
         <h1 class="xl:text-6xl lg:text-5xl md:text-4xl text-3xl text-primary font-extrabold font-serif capitalize mb-5">
             Trusted by <span class="text-secondary">200+</span> company
         </h1>

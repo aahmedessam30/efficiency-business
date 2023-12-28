@@ -1,5 +1,6 @@
 <template>
-    <div class="container mx-auto px-5 w-full text-center pb-40" id="testimonials">
+    <div class="container mx-auto px-5 w-full text-center pb-40" id="testimonials" data-aos="zoom-in"
+         data-aos-duration="1000" data-aos-delay="300">
         <h5 class="text-lg text-secondary font-extrabold font-serif capitalize">Testimonials</h5>
         <h1 class="xl:text-6xl lg:text-5xl md:text-4xl text-3xl text-primary font-extrabold font-serif capitalize mt-4">
             Happy customer say

@@ -1,5 +1,6 @@
 <template>
-    <div id="why-choose-us" class="container mx-auto px-5 xl:w-[80%] md:w-full text-center pb-40">
+    <div id="why-choose-us" class="container mx-auto px-5 xl:w-[80%] md:w-full text-center pb-40" data-aos="fade-up"
+         data-aos-duration="1000" data-aos-delay="300">
         <h1 class="text-6xl text-primary font-extrabold font-serif tracking-wide capitalize">
             Why choose <span class="text-secondary">EDA</span>?
         </h1>

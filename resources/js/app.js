@@ -5,6 +5,8 @@ import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.es.js';
 import {Ziggy} from './ziggy';
 import {i18nVue} from 'laravel-vue-i18n'
 import 'flowbite';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 createInertiaApp({
     title: title => title,
@@ -26,7 +28,11 @@ createInertiaApp({
         return pages[`./Pages/${name}.vue`];
     },
     setup({el, App, props, plugin}) {
-        const app = createApp({render: () => h(App, props)});
+        const app = createApp({
+            mounted() {
+                AOS.init();
+            },
+            render: () => h(App, props)});
         app.config.globalProperties.$route = route;
         app.use(plugin, ZiggyVue, Ziggy)
             .use(i18nVue, {
