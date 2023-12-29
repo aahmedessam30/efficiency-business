@@ -29,7 +29,7 @@ createInertiaApp({
     },
     setup({el, App, props, plugin}) {
         const app = createApp({
-            mounted() {
+            beforeCreate() {
                 AOS.init();
             },
             render: () => h(App, props)});
