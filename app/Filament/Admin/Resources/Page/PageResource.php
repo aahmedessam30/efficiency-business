@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources\Page;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Models\Page;
+use App\Models\SectionType;
 use Filament\Forms\Get;
 use Filament\Tables;
 use Filament\Forms\Set;
@@ -14,11 +15,11 @@ use Filament\Resources\Resource;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Forms\Components\{Fieldset, Repeater, Section, Select, SpatieMediaLibraryFileUpload, TextInput, Toggle};
 use App\Filament\Admin\Resources\Page\PageResource\RelationManagers;
-use App\Traits\ComponentForms;
+use App\Traits\SectionForms;
 
 class PageResource extends Resource
 {
-    use Translatable, ComponentForms;
+    use Translatable, SectionForms;
 
     protected static ?string $model = Page::class;
 
@@ -45,19 +46,23 @@ class PageResource extends Resource
 
                     Repeater::make('sections')
                         ->relationship('sections')
+                        ->reorderable()
+                        ->reorderableWithButtons()
+                        ->collapsible()
+                        ->orderColumn('order')
                         ->schema([
                             Select::make('section_type_id')
                                 ->label(__('attributes.section_type'))
-                                ->options(\App\Models\SectionType::pluck('name', 'id')->toArray())
-                                ->placeholder(__('forms.actions.select_option'))
+                                ->options(SectionType::active()->pluck('name', 'id')->toArray())
+                                ->placeholder(__('attributes.select_section_type'))
                                 ->live()
                                 ->required(),
 
-                            ...static::getSectionTypeComponentField(),
+                            ...static::getSectionFields(),
                         ]),
 
                     Toggle::make('is_active')
-                        ->label(__('attributes.active'))
+                        ->label(__('attributes.is_active', ['attribute' => __('attributes.page')]))
                         ->default(true)
                         ->required(),
                 ]),

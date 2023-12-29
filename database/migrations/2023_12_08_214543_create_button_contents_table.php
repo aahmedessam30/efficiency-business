@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('button_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('text')->nullable();
             $table->string('button_id')->nullable();
             $table->string('href')->nullable();
             $table->string('target')->nullable();
@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('icon_position')->nullable();
             $table->string('size')->nullable();
             $table->string('variant')->nullable();
-            $table->string('value')->nullable();
             $table->string('form')->nullable();
             $table->string('formaction')->nullable();
             $table->string('popovertarget')->nullable();
@@ -36,6 +35,8 @@ return new class extends Migration
             $table->boolean('autofocus')->nullable();
             $table->boolean('autocomplete')->nullable();
             $table->boolean('formnovalidate')->nullable();
+            $table->boolean('is_active')->nullable();
+            $table->boolean('is_icon_active')->nullable();
             $table->text('class')->nullable();
             $table->longText('style')->nullable();
             $table->timestamps();
