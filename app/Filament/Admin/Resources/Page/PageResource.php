@@ -36,7 +36,7 @@ class PageResource extends Resource
                         ->label(__('attributes.title'))
                         ->autofocus()
                         ->maxLength(255)
-                        ->live(debounce: 500)
+                        ->live(onBlur: true)
                         ->afterStateUpdated(fn(Set $set, $state) => $set('slug', Str::slug($state)))
                         ->required(),
 
