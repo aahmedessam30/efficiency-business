@@ -43,6 +43,11 @@ class Section extends Model
         return $this->belongsTo(SectionType::class);
     }
 
+    public function animation()
+    {
+        return $this->belongsTo(SectionAnimation::class);
+    }
+
     public function image()
     {
         return $this->belongsTo(ImageContent::class);

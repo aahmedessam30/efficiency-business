@@ -62,4 +62,11 @@ return [
     'is_active'     => 'Active :attribute',
     'page'          => 'Page',
     'select_section_type' => 'Select section type',
+    'section_animation'   => 'Animation',
+    'animation'           => 'Animation',
+    'select_animation'    => 'Select Animation',
+    'easing'              => 'Easing',
+    'select_easing'       => 'Select Easing',
+    'delay'               => 'Delay',
+    'duration'            => 'Duration',
 ];

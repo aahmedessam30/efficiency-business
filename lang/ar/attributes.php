@@ -62,4 +62,11 @@ return [
     'is_active'     => 'تفعيل :attribute',
     'page'          => 'الصفحة',
     'select_section_type' => 'اختر نوع القسم',
+    'section_animation'   => '',
+    'animation'           => '',
+    'select_animation'    => '',
+    'easing'              => '',
+    'select_easing'       => '',
+    'delay'               => '',
+    'duration'            => '',
 ];

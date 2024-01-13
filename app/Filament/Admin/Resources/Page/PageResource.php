@@ -45,6 +45,7 @@ class PageResource extends Resource
                         ->required(),
 
                     Repeater::make('sections')
+                        ->label(__('attributes.sections'))
                         ->relationship('sections')
                         ->reorderable()
                         ->reorderableWithButtons()
@@ -57,6 +58,37 @@ class PageResource extends Resource
                                 ->placeholder(__('attributes.select_section_type'))
                                 ->live()
                                 ->required(),
+
+                            Fieldset::make('animation')
+                                ->label(__('attributes.section_animation'))
+                                ->schema([
+                                    Select::make('name')
+                                        ->label(__('attributes.animation'))
+                                        ->placeholder(__('attributes.select_animation'))
+                                        ->options(\App\Models\SectionAnimation::defaultAnimations()),
+
+                                    Select::make('easing')
+                                        ->label(__('attributes.easing'))
+                                        ->placeholder(__('attributes.select_easing'))
+                                        ->options(\App\Models\SectionAnimation::defaultEaseings()),
+
+
+                                    TextInput::make('delay')
+                                        ->label(__('attributes.delay'))
+                                        ->placeholder(__('attributes.delay'))
+                                        ->type('number')
+                                        ->default(300)
+                                        ->minLength(0)
+                                        ->maxLength(10000),
+
+                                    TextInput::make('duration')
+                                        ->label(__('attributes.duration'))
+                                        ->placeholder(__('attributes.duration'))
+                                        ->type('number')
+                                        ->default(1000)
+                                        ->minLength(0)
+                                        ->maxLength(10000),
+                                ]),
 
                             ...static::getSectionFields(),
                         ]),
